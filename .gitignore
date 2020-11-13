@@ -11,6 +11,9 @@
 # production
 /build
 
+#api
+fire.js
+
 # misc
 .DS_Store
 .env.local
