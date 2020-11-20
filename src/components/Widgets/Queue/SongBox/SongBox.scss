@@ -1,0 +1,113 @@
+
+
+
+
+.SongBoxHeader {
+
+  width: fit-content;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  margin-left: 3vw;
+}
+
+
+.SongBoxHeader h1 {
+  background-color: #651e3e;
+  display: inline;
+
+}
+
+
+
+
+.queueBox {
+  /*background-color: #1d1d1d;*/
+
+
+  display: flex;
+  float: left;
+  margin-left: 2vw;
+  justify-content: center;
+  align-items: center;
+ 
+
+}
+
+
+
+
+
+
+.card {
+  
+  width: 100%;
+  max-width: 96%;
+  min-width: 200px;
+  max-width: 300px;
+  height:150px;
+  background-color: #00000085;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px #0000003d;
+  border: 2px solid rgba(7, 7, 7, 0.12);
+  font-size: 16px;   
+  transition: all 0.3s ease;
+  position: relative;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: hard-light;
+}
+
+
+
+
+.card .title {
+  background-color: #000;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  margin-top: 10px;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.card .text {
+
+  width: 80%;
+  margin: 0 auto;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+  font-weight: 200;
+  letter-spacing: 2px;
+  opacity: 0;
+  max-height:0;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  height: 187px;
+}
+
+.card:hover .info {
+  height: 90%;
+}
+
+.card:hover .text {
+  transition: all 0.3s ease;
+  opacity: 1;
+  max-height:40px;
+  background-color: #000;
+}
+

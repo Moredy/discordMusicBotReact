@@ -1,0 +1,100 @@
+
+
+.Player {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  background-color: #0a0a0a;
+  height: fit-content;
+  
+
+
+}
+
+
+.container{
+  width:fit-content;
+  padding: 20px 10px;
+  display: inline-block;
+  margin-top: 12px;
+  margin-bottom: 30px;
+  cursor: pointer;
+
+  
+
+}
+
+.nowPlayingText{
+  margin-left: 32%;
+  color: #121212;
+  bottom: 0;
+  background-color: rgb(0, 0, 0);
+  width: fit-content;
+  margin-bottom: -0.5%;
+  text-transform: uppercase;
+
+
+}
+
+.buttonPlayer {
+  
+  position: relative;
+  border: 1px solid #651e3e ;
+  border-radius: 10px;/*RAIO DO BOTAO*/
+  word-wrap: normal;
+  padding: 10px 40px;
+  
+  color: #af316a ;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.buttonPlayer:hover {
+  background: #651e3e ;
+  color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #651e3e ,
+              0 0 25px #651e3e ,
+              0 0 50px #651e3e ,
+              0 0 100px #651e3e ;
+}
+
+.buttonPlayerLogout {
+
+  position: relative;
+  border: 1px solid #851e3e ;
+  border-radius: 10px;/*RAIO DO BOTAO*/
+  word-wrap: normal;
+  padding: 10px 40px;
+  
+  color: #851e3e ;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+
+}
+
+.buttonPlayerLogout:hover {
+
+  background: #851e3e;
+  color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #851e3e,
+              0 0 25px #851e3e,
+              0 0 50px #851e3e,
+              0 0 100px #851e3e;
+
+}
+

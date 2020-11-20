@@ -4,7 +4,13 @@ import AuthBox from './components/Auth/Auth'
 import React, { useState, useEffect } from "react";
 import './App.css';
 import fire from './fire';
-import MainPageHeader from './components/MainPage/Header/Header'
+import Player from './components/Widgets/Player/Player'
+import Header from './components/MainPage/Header/Header'
+import SearchBar from './components/Widgets/SearchBar/SearchBar'
+import Queue from './components/Widgets/Queue/Queue'
+import SideBarMenu from './components/MainPage/SideBarMenu/SideBarMenu'
+import FullPageLoader from './components/Widgets/FullPageLoader/FullPageLoader'
+
 
 const App = () => {
   const [user, setUser] = useState('');
@@ -13,6 +19,9 @@ const App = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState(false);
+  const [displayLoader, setDisplayLoader] = useState(false);
+
+
 
   const clearInputs = () => {
     setEmail('');
@@ -65,6 +74,8 @@ const App = () => {
     fire.auth().signOut();
   };
 
+  
+
   const authListener = () => {
     fire.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -78,14 +89,36 @@ const App = () => {
 
   useEffect(() => {
     authListener();
+
+
+    var Tasks = fire.database().ref('task/');
+    Tasks.on('child_added', function (snapshot) {
+      setDisplayLoader(true);
+    });
+    Tasks.on('child_removed', function (snapshot) {
+      setDisplayLoader(false);
+    });
   }, []);
 
 
   return (
+
+    
     <div className="App">
 
       {user ? (
-        <MainPageHeader handdleLogout={handdleLogout}></MainPageHeader>
+        
+        <>
+        {displayLoader ? (<FullPageLoader></FullPageLoader>) : (<></>)}
+        <Header handdleLogout={handdleLogout}></Header>
+        <SearchBar></SearchBar>
+        <Queue></Queue>
+        <Player ></Player>
+
+
+        
+        </>
+        
       ) : (
 
           <AuthBox
