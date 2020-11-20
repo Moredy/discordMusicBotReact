@@ -16,11 +16,14 @@ import fire from '../../../fire';
 const Header = ({ handdleLogout }) => {
 
   const [discordID, setDiscordID] = useState('');
-    
+   
+  const gravarDiscordID = () => {
+
   fire.database().ref('user/').update({
     discordID: discordID,
   });
 
+  }
   return (
     <div className="Header">
 
@@ -45,6 +48,7 @@ const Header = ({ handdleLogout }) => {
           <div class="discordid__group field">
             <input type="input" class="form__field_discorid" onChange={e => setDiscordID(e.target.value)}/>
             <label for="name" class="form__label_discordid">Insira seu ID do Discord.</label>
+            <button onClick={gravarDiscordID}>Salvar</button>
           </div>
         
         <a className="buttonHeaderLogout" onClick={handdleLogout}>LOGOUT</a>
