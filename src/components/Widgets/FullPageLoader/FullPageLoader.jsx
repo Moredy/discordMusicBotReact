@@ -9,6 +9,7 @@ const FullPageLoader = (props) => {
       <div class="loader-container">
         <div class="loader">
             <h1 style={{color: "#fff"}}>Loading...</h1>
+            <p style={{color: "#fff"}}> Caso o loading não desaparecer, vá no chat do servidor e verifique se você está sincronizado com o site digitando "-verificarID"</p>
         </div>
       </div>
       </>

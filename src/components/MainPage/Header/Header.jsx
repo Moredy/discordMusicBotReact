@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './Header.scss'
 import MainMenu from './MainMenu/MainMenu'
 import fire from '../../../fire';
@@ -16,14 +16,30 @@ import fire from '../../../fire';
 const Header = ({ handdleLogout }) => {
 
   const [discordID, setDiscordID] = useState('');
+  const [discordIDAtual, setDiscordIDAtual] = useState('');
    
   const gravarDiscordID = () => {
 
-  fire.database().ref('user/').update({
-    discordID: discordID,
+
+  var taskKey = fire.database().ref().child('task').push().key;
+
+  fire.database().ref('task/' + taskKey).set({
+    type: "verificarID",
+    verificarID: discordID
   });
 
+
   }
+
+  var User = fire.database().ref('user/');
+  User.on('value', async function (snapshot) {
+    if (await snapshot.val() != null) {
+    setDiscordIDAtual(await snapshot.val().discordID)
+    }
+  });
+
+
+
   return (
     <div className="Header">
 
@@ -48,6 +64,7 @@ const Header = ({ handdleLogout }) => {
           <div class="discordid__group field">
             <input type="input" class="form__field_discorid" onChange={e => setDiscordID(e.target.value)}/>
             <label for="name" class="form__label_discordid">Insira seu ID do Discord.</label>
+            <p style={{color: "#fff"}} >Atual: {discordIDAtual}</p>
             <button onClick={gravarDiscordID}>Salvar</button>
           </div>
         
